@@ -18,6 +18,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public String addNewUser(@RequestBody UserDetailsDto register){
+        System.out.println("addNewUser");
         System.out.println(register);
         return authService.addNewEmployee(register);
     }
