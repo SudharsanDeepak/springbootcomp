@@ -1,0 +1,32 @@
+# IntelliJ IDEA default ignored files
+.idea/
+*.iml
+/shelf/
+/workspace.xml
+
+# Editor-based HTTP Client requests
+/httpRequests/
+
+# Environment-dependent path to Maven home directory
+/mavenHomeManager.xml
+
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# VSCode settings (if you use VSCode too)
+.vscode/
+
+# Personal folders
+Zips/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Java / Maven
+target/
+out/
