@@ -1,8 +1,12 @@
-FROM maven:3.8.5-openjdk-17 AS build
+FROM eclipse-temurin:24-jdk AS build
+WORKDIR /app
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 COPY . .
 RUN mvn clean package -DskipTests
 
-FROM openjdk:17.0.1-jdk-slim
-COPY --from=build /target/*.jar springbootfirst.jar
+FROM eclipse-temurin:24-jdk
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
+ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","springbootfirst.jar"]
+ENTRYPOINT ["java", "-Dserver.port=${PORT}", "-jar", "app.jar"]
